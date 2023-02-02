@@ -2,6 +2,11 @@ const express=require('express');
 const app=express();
 const port=8000;
 
+//using express layouts
+const expressLayouts=require('express-ejs-layouts');
+
+app.use(expressLayouts);
+
 //using express router
 app.use('/',require('./routes'));
 
