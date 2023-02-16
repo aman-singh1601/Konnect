@@ -1,3 +1,5 @@
+const cookieParser = require('cookie-parser');
+const { urlencoded } = require('express');
 const express=require('express');
 const app=express();
 const port=8000;
@@ -6,6 +8,9 @@ const port=8000;
 const expressLayouts=require('express-ejs-layouts');
 //requiring the database in config
 const db=require('./config/mongoose');
+
+app.use(express.urlencoded());
+app.use(cookieParser());
 
 app.use(express.static('./assets'));
 
