@@ -14,3 +14,11 @@ module.exports.signUp=function(req,res){
         title:'sign up'
     });
 }
+
+module.exports.create=function(req,res){
+    //todo
+}
+
+module.exports.createSession=function(req,res){
+    //todo
+}
