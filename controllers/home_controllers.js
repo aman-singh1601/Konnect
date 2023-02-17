@@ -32,5 +32,15 @@ module.exports.create=function(req,res){
 }
 
 module.exports.createSession=function(req,res){
-    //todo
+    User.findOne({email: req.body.email},function(err,user){
+        if(err){console.log('error in finding the user'); return ;}
+        if(user){
+            if(user.password!=req.body.password)
+               return res.redirect('back');
+               
+            res.cookie('user_id',user.id);
+            return res.redirect('/users'); 
+
+        }else return res.redirect('back');
+    })
 }
