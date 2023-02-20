@@ -1,5 +1,7 @@
 const express=require('express');
 
+const passport=require('passport');
+
 //using controllers
 const homeController=require('../controllers/home_controllers');
 
@@ -11,7 +13,10 @@ router.get('/sign-in',homeController.signIn);
 router.get('/sign-up',homeController.signUp);
 
 router.post('/create',homeController.create);
-router.post('/create-session',homeController.createSession);
+router.post('/create-session',passport.authenticate(
+    'local',
+    {failureRedirect:'/sign-in'},
+),homeController.createSession);
 
 router.use('/users',require('./users'));
 module.exports=router;
