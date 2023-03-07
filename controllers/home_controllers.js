@@ -40,3 +40,10 @@ module.exports.create=function(req,res){
 module.exports.createSession=function(req,res){
   return res.redirect('/users');
 }
+
+module.exports.destroySessioin=function(req,res){
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+      });
+}

@@ -11,6 +11,7 @@ const router=express.Router();
 router.get('/',homeController.home);
 router.get('/sign-in',homeController.signIn);
 router.get('/sign-up',homeController.signUp);
+router.get('/sign-out',homeController.destroySessioin);
 
 router.post('/create',homeController.create);
 router.post('/create-session',passport.authenticate(
