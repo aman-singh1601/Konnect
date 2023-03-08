@@ -1,4 +1,13 @@
-<header>
+<header id="layout-header">
+    <nav>
+        <div class="mini-logo">
+            <p>
+                <a href='/'>
+                   KONNECT
+                </a>
+            </p>
+        </div>
+    <div class="auth-links">
     <ul>
         <%if(locals.user){%>
             <li><a href="/users"><%=user.name%></a></li>
@@ -14,4 +23,6 @@
             </li>
         <%}%>
     </ul>
+</div>
+</nav>
 </header>
