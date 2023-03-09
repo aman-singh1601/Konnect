@@ -1,12 +1,12 @@
 const express=require('express');
-
+const router=express.Router();
 const passport=require('passport');
 
 //using controllers
 const homeController=require('../controllers/home_controllers');
 
 
-const router=express.Router();
+
 
 router.get('/',homeController.home);
 router.get('/sign-in',homeController.signIn);
@@ -20,4 +20,5 @@ router.post('/create-session',passport.authenticate(
 ),homeController.createSession);
 
 router.use('/users',require('./users'));
+router.use('/posts',require('./post'));
 module.exports=router;
