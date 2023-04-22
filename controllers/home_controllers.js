@@ -25,7 +25,7 @@ module.exports.home=function(req,res){
 
 module.exports.signIn=function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect("/users");
+        return res.redirect('/');
     }
     return res.render('user_sign_in',{
         title:'sign in'
@@ -33,7 +33,7 @@ module.exports.signIn=function(req,res){
 }
 module.exports.signUp=function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect("/users");
+        return res.redirect('/');
     }
     return res.render('user_sign_up',{
         title:'sign up'
