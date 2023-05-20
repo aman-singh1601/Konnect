@@ -8,6 +8,7 @@ const homeController=require('../controllers/home_controllers');
 
 
 
+
 router.get('/',homeController.home);
 router.get('/sign-in',homeController.signIn);
 router.get('/sign-up',homeController.signUp);
@@ -22,4 +23,7 @@ router.post('/create-session',passport.authenticate(
 router.use('/users',require('./users'));
 router.use('/posts',require('./post'));
 router.use('/comments',require('./comment'));
+
+router.use('/api',require('./api'));
+
 module.exports=router;
