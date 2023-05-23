@@ -1,16 +1,16 @@
 const passport=require('passport');
-const passportJWT=require('passport-jwt').Strategy;
+const JWTStrategy=require('passport-jwt').Strategy;
 const ExtractJWT=require('passport-jwt').ExtractJwt;
 
 
 const User=require('../models/user');
 
 let ops={
-    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken,
+    jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey:'konnect'
 }
 
-passport.use(new JWTstrategy(ops,function(jwtPlayLoad,done){
+passport.use(new JWTStrategy(ops,function(jwtPlayLoad,done){
 
     User.findById(jwtPlayLoad._id,function(err,user){
 
